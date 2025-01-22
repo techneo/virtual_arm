@@ -1,4 +1,4 @@
-# virtual_arm (Work in progress)
+# VIRTUAL 32BIT ARM  (Work in progress)
 
 A Docker container to build and run a minimal ARM linux with Busybox
 
