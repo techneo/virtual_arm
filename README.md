@@ -23,7 +23,8 @@ The activities include
 # Pre Requesites
 
 Docker (WSL2) on  Windows 
-5 GB Hard Disk spave
+
+5 GB Hard Disk space
 
 # Installation
 
