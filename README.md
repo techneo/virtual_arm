@@ -40,17 +40,20 @@ From the container shell invoke  build.sh
 ![image](https://github.com/user-attachments/assets/5deddece-a9ea-4c81-8d88-3bf597c97a17)
 
 
-## Building
+# Building
 
 Options 1 2 3 and 4 enable building the individual elements. 
+![image](https://github.com/user-attachments/assets/a055a8e0-d757-4a52-8713-4f71adc3441d)
 
-## Executing the Firmware
+# Executing the Firmware
 
 Options 5 6 7 runs the built firmware on qemu  ( dependency : 1 2 3 8)
+![image](https://github.com/user-attachments/assets/47b8de02-1694-4d95-93f7-2b0a2e33f78c)
 
 # Creating Combined SDCARD image
 
 Option 8 combines all the generated artefacts into a vfat image that can be executed using option 7
+![image](https://github.com/user-attachments/assets/93b30e21-32a4-4f3b-96db-c8cc9342137d)
 
 
 
