@@ -1,6 +1,6 @@
 # virtual_arm (Work in progress)
 
-A Docker container to build and run a ARM linux 
+A Docker container to build and run a minimal ARM linux with Busybox
 
 This projects aims at creating a Lab like environment to learn and experiment with Embedded Linux
 The activities include
@@ -43,6 +43,14 @@ From the container shell invoke  build.sh
 ## Building
 
 Options 1 2 3 and 4 enable building the individual elements. 
+
+## Executing the Firmware
+
+Options 5 6 7 runs the built firmware on qemu  ( dependency : 1 2 3 8)
+
+# Creating Combined SDCARD image
+
+Option 8 combines all the generated artefacts into a vfat image that can be executed using option 7
 
 
 
