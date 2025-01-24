@@ -1,9 +1,10 @@
 @echo off
-mkdir sources 2>nul
-mkdir output 2>nul
-mkdir output/u-boot 2>nul
-mkdir output/kernel 2>nul
-mkdir output/initramfs 2>nul
+mkdir sources
+mkdir output
+mkdir output\u-boot
+mkdir output\kernel
+mkdir output\initramfs
+
 
 :: Create named volume for workspace if it doesn't exist
 docker volume create arm-linux-workspace
