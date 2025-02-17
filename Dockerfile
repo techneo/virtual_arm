@@ -186,24 +186,25 @@ build_uboot() {
     cd /build/workspace/u-boot-2024.01
 
     if [ ! -f .config ]; then
+    	echo "Patch config file..."
         make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- vexpress_ca9x4_defconfig
         
         cat >> .config <<'EOL'
-        CONFIG_CMD_MMC=y
-        CONFIG_CMD_FAT=y
-        CONFIG_CMD_FS_GENERIC=y
-        CONFIG_MMC=y
-        CONFIG_GENERIC_MMC=y
-        CONFIG_ARM_PL180_MMCI=y
-        CONFIG_MMC_PL180=y
-        CONFIG_SUPPORT_VFAT=y
-        CONFIG_CMD_BOOTZ=n
-        CONFIG_OF_LIBFDT=y
-        CONFIG_OF_BOARD_SETUP=y
-        CONFIG_DEFAULT_FDT_FILE="vexpress-v2p-ca9.dtb"
-        CONFIG_BOOTDELAY=2
-        CONFIG_USE_BOOTCOMMAND=y
-        CONFIG_BOOTCOMMAND="mmc rescan; fatload mmc 0:1 0x60000000 boot.scr; source 0x60000000"
+CONFIG_CMD_MMC=y
+CONFIG_CMD_FAT=y
+CONFIG_CMD_FS_GENERIC=y
+CONFIG_MMC=y
+CONFIG_GENERIC_MMC=y
+CONFIG_ARM_PL180_MMCI=y
+CONFIG_MMC_PL180=y
+CONFIG_SUPPORT_VFAT=y
+CONFIG_CMD_BOOTZ=n
+CONFIG_OF_LIBFDT=y
+#CONFIG_OF_BOARD_SETUP=y
+CONFIG_DEFAULT_FDT_FILE="vexpress-v2p-ca9.dtb"
+CONFIG_BOOTDELAY=2
+CONFIG_USE_BOOTCOMMAND=y
+CONFIG_BOOTCOMMAND="mmc rescan; fatload mmc 0:1 0x60000000 boot.scr; source 0x60000000"
 EOL
         
         make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- olddefconfig
