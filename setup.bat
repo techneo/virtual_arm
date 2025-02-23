@@ -12,6 +12,7 @@ docker volume create arm-linux-workspace
 docker build -t arm-linux-build .
 
 docker run --privileged -it ^
+    --name=linux_lab ^
     -v "%cd%\sources":/build/sources ^
     -v "%cd%\output":/build/output ^
     -v arm-linux-workspace:/build/workspace ^

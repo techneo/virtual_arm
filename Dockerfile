@@ -34,6 +34,7 @@ RUN apt-get update && apt-get install -y \
     fdisk \
     mtools \
     parted \
+    nano \
     && rm -rf /var/lib/apt/lists/*
 
 # Create directory structure
@@ -110,6 +111,8 @@ build_kernel() {
         # Enable loadable module support
         sed -i 's/# CONFIG_MODULES is not set/CONFIG_MODULES=y/' .config
         sed -i '/CONFIG_MODULES=y/a CONFIG_MODULE_UNLOAD=y' .config
+        sed -i 's/CONFIG_DEBUG_INFO is not set/CONFIG_DEBUG_INFO=y' .config
+        make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- olddefconfig
     fi
 
     make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- -j$(nproc) zImage modules dtbs
