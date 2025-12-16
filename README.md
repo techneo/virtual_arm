@@ -1,60 +1,73 @@
-# VIRTUAL 32BIT ARM  (Work in progress)
+# ARM 32bit Lab Environment
 
-A Docker container to build and run a minimal ARM linux with Busybox
+This project is a simple lab environment for ARM 32bit Processor .  
 
-This projects aims at creating a Lab like environment to learn and experiment with Embedded Linux
-The activities include
+## Pipeline 
 
-1. Working with the u-boot
-2. Building a mainline kernel for Virtual Express Cortex A9
-3. Building a minimal initramfs root file system based on busybox
-4. Running u-boot on qemu
-5. Running kernel on qemu
-6. Running a complete embedded setup when u-boot loads the kernel and mounts a rootfs
-7. Exposing to u-boot command line environment
-8. Exosing to busybox commands
-9. Changin kernel config using menu config and rebuilding
+Windows/Linux -> Docker -> Qemu -> Linux for ARM
 
-# Components ( Downloaded when creating container) 
-1. U-boot 2024.1
-2. Kernel 6.6
-3. Busybox 1.36
+## Prerequisites
 
-# Pre Requesites
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
-Docker (WSL2) on  Windows 
+## Introduction
 
-5 GB Hard Disk space
+The scripts are designed to download the source code for the linux kernel , u-boot and busybox.
+List:
+     [Busybox 1.36.1](sources/busybox-1.36.1.tar.bz2)
+     [Kernel 6.6](sources/linux-6.6.tar.xz)
+     [u-boot 2024.01](sources/u-boot-2024.01.tar.bz2)
 
-# Installation
+The docker file spins a Ubuntu 22.04 image and sets it up with tools and packages needed to build and run the linux distro.
 
-clone the repo and run start.bat from the terminal.
+Packages:
+    build-essential,
+    gcc-arm-linux-gnueabi,
+    binutils-arm-linux-gnueabi,
+    qemu-system-arm,
+    qemu-user,
+    bc,
+    bison,
+    flex,
+    libssl-dev,
+    libelf-dev,
+    wget,
+    cpio,
+    unzip,
+    python3,
+    git,
+    kmod,
+    ncurses-dev,
+    swig,
+    sudo,
+    vim,
+    dos2unix,
+    dosfstools,
+    u-boot-tools,
+    dosfstools,
+    sudo,
+    fdisk,
+    mtools,
+    parted,
+    nano
 
-![image](https://github.com/user-attachments/assets/990902d4-c313-4378-bcd4-563722fed678)
+## Usage
 
-After installing all the prerequistes as per the Dockerfile , the container shell would be shown. 
+Based on the OS , lauch the setup.bat or setup.sh from the terminal
 
-# Execution
+For the first run , the script builds the Ubuntu system , downloads the source and sets up the needed directories.
 
-From the container shell invoke  build.sh
+Features:
 
-![image](https://github.com/user-attachments/assets/5deddece-a9ea-4c81-8d88-3bf597c97a17)
+1. Build and run u-boot
+2. Build and run the Kernel
+3. Build a combined image using the uboot , kernel and busybox to get a simple initramfs
+4. Develop simple kernel modules ( hello provided for reference)
 
+[More details here](Usage.md)
 
-# Building
+## Future
 
-Options 1 2 3 and 4 enable building the individual elements. 
-![image](https://github.com/user-attachments/assets/a055a8e0-d757-4a52-8713-4f71adc3441d)
-
-# Executing the Firmware
-
-Options 5 6 7 runs the built firmware on qemu  ( dependency : 1 2 3 8)
-![image](https://github.com/user-attachments/assets/47b8de02-1694-4d95-93f7-2b0a2e33f78c)
-
-# Creating Combined SDCARD image
-
-Option 8 combines all the generated artefacts into a vfat image that can be executed using option 7
-![image](https://github.com/user-attachments/assets/93b30e21-32a4-4f3b-96db-c8cc9342137d)
-
-
-
+1. Debug kernel support
+2. Debug u-boot 
+3. Add a fullfledged rootfs
