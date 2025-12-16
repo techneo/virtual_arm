@@ -1,0 +1,1 @@
+savedcmd_/build/workspace/code/hellomod/Module.symvers :=  scripts/mod/modpost -M        -o /build/workspace/code/hellomod/Module.symvers -T /build/workspace/code/hellomod/modules.order -i Module.symvers -e 

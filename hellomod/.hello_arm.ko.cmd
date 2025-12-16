@@ -1,0 +1,1 @@
+savedcmd_/build/workspace/code/hellomod/hello_arm.ko := arm-linux-gnueabi-ld -r -EL -z noexecstack --build-id=sha1  -T scripts/module.lds -o /build/workspace/code/hellomod/hello_arm.ko /build/workspace/code/hellomod/hello_arm.o /build/workspace/code/hellomod/hello_arm.mod.o;  true
