@@ -18,7 +18,6 @@ echo Container %CONTAINER_NAME% does not exist. Creating and starting...
 docker run --privileged -it ^
     --name %CONTAINER_NAME% ^
     -v "%cd%\sources":/build/sources ^
-    -v "%cd%\output":/build/output ^
     -v "%cd%\scripts":/build/scripts ^
     -v arm-linux-workspace:/build/workspace ^
     %IMAGE_NAME%
